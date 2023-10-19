@@ -55,7 +55,7 @@ int bspatch(
 	struct bsdiff_patch_packer *packer);
 ```
 
-## Demo Usage
+## Demo Usage 
 ```c
 #include <stdio.h>
 #include "bsdiff.h"
