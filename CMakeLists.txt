@@ -16,6 +16,7 @@ add_library(bzip2 STATIC
     3rdparty/bzip2/crctable.c
     3rdparty/bzip2/huffman.c
     3rdparty/bzip2/randtable.c)
+set_property(TARGET bzip2 PROPERTY POSITION_INDEPENDENT_CODE ON)
 
 # libdivsufsort
 function(add_libdivsufsort)
@@ -23,6 +24,7 @@ function(add_libdivsufsort)
     set(BUILD_EXAMPLES OFF)
     set(BUILD_DIVSUFSORT64 ON)
     set(BUILD_SHARED_LIBS OFF)
+    set(CMAKE_POSITION_INDEPENDENT_CODE ON)
     add_subdirectory(3rdparty/libdivsufsort)
 endfunction()
 
@@ -51,6 +53,7 @@ if (MSVC)
     target_compile_definitions(bsdiff PRIVATE "_CRT_SECURE_NO_WARNINGS")
 endif()
 target_link_libraries(bsdiff PRIVATE bzip2 PRIVATE divsufsort PRIVATE divsufsort64)
+set_property(TARGET bsdiff PROPERTY POSITION_INDEPENDENT_CODE ON)
 
 if (BUILD_STANDALONES)
     # bsdiff_app
